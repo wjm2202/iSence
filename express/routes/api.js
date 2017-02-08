@@ -1,16 +1,16 @@
 // Import dependencies
-const mongoose = require('mongoose');   //import mongoose 
-const express = require('express');     //import express
-const router = express.Router();        //create router
+const mongoose = require('mongoose');                            //import mongoose 
+const express = require('express');                              //import express
+const router = express.Router();                                 //create router
 
 // MongoDB URL from the docker-compose file
 const dbHost = 'mongodb://database/mean-docker';                 //db connenction string 
 
 // Connect to mongodb
-mongoose.connect(dbHost);                                       //connect to DB
+mongoose.connect(dbHost);                                       //connect middleware to DB
 
 // create mongoose schema
-const userSchema = new mongoose.Schema({                       //creating the mongodb table schema
+const userSchema = new mongoose.Schema({                       //creating the mongodb table {schema}
   name: String,                                                //variable name is a string
   age: Number                                                  //viable age is a number
 });
@@ -28,7 +28,7 @@ router.get('/users', (req, res) => {                        //get users request
     User.find({}, (err, users) => {                         //errors???
         if (err) res.status(500).send(error)                //if error return error to caller
 
-        res.status(200).json(users);                       //else return 200: users.json
+        res.status(200).json(users);                       //else return 200: users.json return
     });
 });
 
